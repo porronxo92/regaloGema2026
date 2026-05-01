@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego 3x3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Josefin+Sans:wght@200;400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/normalize.css">
+</head>
+<body>
+    <div class="context">
+        <h1>🎰 GEMA en raya 🎰</h1>
+        <div class="container">
+          <div id="bienvenida" class="bienvenida">
+            <p class="txt-bienvenida">
+              Este juego es un clásico de los de antes, vas a tener que jugar contra mí
+              para poder ganar tu regalo al 3 en raya. Para darte ventaja empezarás tú. <br />
+              🤗 ¿Estás preparada? 🤗
+            </p>
+            <button class="rainbow rainbow-1 btn-bienvenida" onclick="ajugar()">
+              ¡¡A JUGAR!!
+            </button>
+          </div>
+          <div id="tablero" class="no-visible">
+            <table class="tabla">
+                <tr class="tabla-row">
+                  <td class="square"></td>
+                  <td class="square"></td>
+                  <td class="square"></td>
+                </tr>
+                <tr class="tabla-row" >
+                  <td class="square"></td>
+                  <td class="square"></td>
+                  <td class="square"></td>
+                </tr>
+                <tr class="tabla-row" >
+                  <td class="square"></td>
+                  <td class="square"></td>
+                  <td class="square"></td>
+                </tr>
+            </table>
+            <button class="btn-centrar" onclick="reset()">🎮 Volver a jugar 🎮</button>  
+          </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <h2 id="headerModal"></h2>
+          <p id="mensajeModal"></p>
+          <button id="cerrarModal" class="btn-centrar"></button>
+        </div>
+      </div>
+    <script src="js/juego3x3.js"></script>
+</body>
+</html>

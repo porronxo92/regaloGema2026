@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Gema ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg: #fdf8f4;
+            --color-primary: #d4a574;
+            --color-secondary: #8b6b4a;
+            --color-text: #4a3728;
+            --color-accent: #e8c4a8;
+            --color-heart: #c9485b;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* Fondo decorativo */
+        .bg-decoration {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, #fdf8f4 0%, #f5e6d8 50%, #e8d4c4 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bg-petals {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            font-size: 1.2rem;
+            opacity: 0.18;
+            animation: floatPetal linear infinite;
+        }
+
+        @keyframes floatPetal {
+            0%   { transform: translateY(-40px) rotate(0deg); opacity: 0; }
+            10%  { opacity: 0.18; }
+            90%  { opacity: 0.18; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Contenedor principal */
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem 1.5rem 3rem;
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .header-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50%       { transform: scale(1.12); }
+        }
+
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            color: var(--color-secondary);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.02em;
+        }
+
+        .header-subtitle {
+            font-size: clamp(1rem, 3vw, 1.35rem);
+            font-style: italic;
+            color: var(--color-primary);
+            margin-bottom: 2.5rem;
+            opacity: 0.85;
+        }
+
+        /* Tarjetas */
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.75);
+            border: 1.5px solid var(--color-accent);
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 1.4rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 20px rgba(180, 120, 80, 0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 12px 36px rgba(180, 120, 80, 0.18);
+            border-color: var(--color-primary);
+        }
+
+        .card:active {
+            transform: scale(0.98);
+        }
+
+        .card-icon {
+            font-size: 2.8rem;
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 6px rgba(180,120,80,0.25));
+        }
+
+        .card-body {
+            text-align: left;
+            flex: 1;
+        }
+
+        .card-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            margin-bottom: 0.15rem;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            color: var(--color-secondary);
+            line-height: 1.2;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--color-text);
+            opacity: 0.7;
+            margin-top: 0.2rem;
+        }
+
+        .card-arrow {
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+
+        .card:hover .card-arrow {
+            transform: translateX(5px);
+        }
+
+        /* Tarjeta especial "Sorpresa Final" */
+        .card.special {
+            background: linear-gradient(135deg, rgba(201, 72, 91, 0.08) 0%, rgba(212, 165, 116, 0.12) 100%);
+            border-color: rgba(201, 72, 91, 0.35);
+        }
+
+        .card.special:hover {
+            border-color: var(--color-heart);
+            box-shadow: 0 12px 36px rgba(201, 72, 91, 0.2);
+        }
+
+        .card.special .card-label {
+            color: var(--color-heart);
+        }
+
+        .card.special .card-arrow {
+            color: var(--color-heart);
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 1;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--color-primary);
+            opacity: 0.7;
+        }
+
+        /* Entrada con fade */
+        .container {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-decoration"></div>
+    <div class="bg-petals" id="petals"></div>
+
+    <div class="container">
+        <div class="header-icon">🎁</div>
+        <h1 class="header-title">Para ti, Gema</h1>
+        <p class="header-subtitle">Tres cosas que te he preparado con mucho cariño</p>
+
+        <div class="cards">
+
+            <a class="card" href="regalo/index.html">
+                <span class="card-icon">🎁</span>
+                <div class="card-body">
+                    <div class="card-label">Regalo 1</div>
+                    <div class="card-title">Algo hecho a mano</div>
+                    <div class="card-desc">Tendrás que crearlo con tus propias manos…</div>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+            <a class="card" href="regalo2/index.html">
+                <span class="card-icon">🎁</span>
+                <div class="card-body">
+                    <div class="card-label">Regalo 2</div>
+                    <div class="card-title">Nuestra lista pendiente</div>
+                    <div class="card-desc">Todo lo que nos queda por vivir juntos</div>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+            <a class="card special" href="carta/carta.html">
+                <span class="card-icon">🎁</span>
+                <div class="card-body">
+                    <div class="card-label">Sorpresa Final</div>
+                    <div class="card-title">Algo especial de mimi</div>
+                    <div class="card-desc">Lo más importante lo he dejado para el final</div>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+        </div>
+    </div>
+
+    <p class="footer">Feliz 31 cumpleaños ❤️</p>
+
+    <script>
+        // Pétalos flotantes
+        const petals = ['🌸', '🌺', '✨', '💛', '🌼'];
+        const container = document.getElementById('petals');
+        for (let i = 0; i < 18; i++) {
+            const el = document.createElement('span');
+            el.className = 'petal';
+            el.textContent = petals[Math.floor(Math.random() * petals.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.top = '-40px';
+            el.style.animationDuration = (8 + Math.random() * 10) + 's';
+            el.style.animationDelay = (Math.random() * 12) + 's';
+            el.style.fontSize = (0.8 + Math.random() * 0.8) + 'rem';
+            container.appendChild(el);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta Regalo - Saleta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --saleta-cream: #F2EFE6;
+            --saleta-green: #1B5E3C;
+        }
+        body {
+            background-color: #fdf8f4;
+            font-family: 'Inter', sans-serif;
+        }
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .card-container {
+            background-color: var(--saleta-cream);
+            border: 2px solid var(--saleta-green);
+            max-width: 700px;
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .border-inner {
+            border: 1px solid var(--saleta-green);
+            margin: 15px;
+            height: calc(100% - 30px);
+        }
+        .logo-mark {
+            width: 50px;
+            height: 50px;
+            border: 1.5px solid var(--saleta-green);
+            border-radius: 50% 50% 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .divider {
+            height: 1px;
+            background-color: var(--saleta-green);
+            opacity: 0.3;
+            margin: 20px 0;
+        }
+        .stamp {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            transform: rotate(-15deg);
+            border: 2px solid var(--saleta-green);
+            color: var(--saleta-green);
+            padding: 5px 15px;
+            font-weight: bold;
+            border-radius: 4px;
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--saleta-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        .back-link:hover {
+            opacity: 0.7;
+        }
+        @media print {
+            .no-print { display: none; }
+            body { background-color: white; }
+            .card-container { box-shadow: none; margin: 0; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="card-container rounded-lg">
+        <div class="border-inner p-8">
+            
+            <!-- Encabezado -->
+            <div class="flex justify-between items-start mb-10">
+                <div>
+                    <h2 class="text-xs tracking-[0.3em] uppercase text-[#1B5E3C] mb-1">Obsequio Exclusivo</h2>
+                    <h1 class="serif text-4xl md:text-5xl text-[#1B5E3C]">Vale de Regalo — Taller de Alfarería</h1>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="logo-mark">
+                        <div style="width: 25px; height: 35px; border: 1.5px solid #1B5E3C; border-bottom: none; border-radius: 12px 12px 0 0; position: relative;">
+                            <div style="width: 15px; height: 25px; border: 1.5px solid #1B5E3C; border-bottom: none; border-radius: 8px 8px 0 0; position: absolute; bottom: 0; left: 3.5px;"></div>
+                        </div>
+                    </div>
+                    <span class="text-[#1B5E3C] font-semibold tracking-wider mt-1">Saleta</span>
+                </div>
+            </div>
+
+            <!-- Contenido Principal -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <p class="text-[#1B5E3C] text-lg mb-6 leading-relaxed italic">
+                        "Estás invitada a explorar tu creatividad en nuestro taller de alfarería en el corazón de Valencia."
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex border-b border-[#1B5E3C]/20 pb-1">
+                            <span class="text-xs uppercase tracking-widest text-[#1B5E3C]/60 w-12">Para:</span>
+                            <span class="font-medium text-[#1B5E3C] flex-grow text-center">Pompincha</span>
+                        </div>
+                        <div class="flex border-b border-[#1B5E3C]/20 pb-1">
+                            <span class="text-xs uppercase tracking-widest text-[#1B5E3C]/60 w-12">De:</span>
+                            <span class="font-medium text-[#1B5E3C] flex-grow text-center">Pompincho</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 grid grid-cols-2 gap-4">
+                        <div class="bg-[#1B5E3C] text-[#F2EFE6] p-3 rounded text-center">
+                            <p class="text-[10px] uppercase tracking-tighter opacity-80">Experiencia</p>
+                            <p class="text-sm font-semibold">Taller Modelado a Mano</p>
+                        </div>
+                        <div class="bg-[#1B5E3C] text-[#F2EFE6] p-3 rounded text-center">
+                            <p class="text-[10px] uppercase tracking-tighter opacity-80">Ubicación</p>
+                            <p class="text-sm font-semibold">Ruzafa, Valencia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detalles -->
+                <div class="flex flex-col justify-between border-l border-[#1B5E3C]/10 pl-6">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-[#1B5E3C] text-xs">
+                            <span>✨</span> <span>Técnicas manuales</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-[#1B5E3C] text-xs">
+                            <span>🔥</span> <span>Esmaltado y Cocción</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-[#1B5E3C] text-xs">
+                            <span>☕</span> <span>Merienda incluida</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pie de tarjeta -->
+            <div class="divider"></div>
+            <div class="flex justify-between items-end text-[#1B5E3C]">
+                <div class="text-[10px]">
+                    <p>Fecha: 30 de mayo de 2026</p>
+                    <p>Hora: 11.00 - 13.00 hrs</p>
+                </div>
+                <div class="stamp">Válido en Ruzafa</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controles -->
+    <div class="max-w-[700px] mx-auto mt-6 flex justify-between items-center no-print px-2">
+        <a href="index.html" class="back-link">← Volver al juego</a>
+        <button onclick="window.print()" class="bg-[#1B5E3C] text-white px-6 py-2 rounded-full font-bold shadow-lg hover:bg-green-900 transition-colors">
+            Imprimir Tarjeta
+        </button>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>🏺 Tu regalo especial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- ===== PANTALLA INTRO ===== -->
+    <div class="screen active" id="screen-intro">
+        <div class="intro-container">
+            <div class="intro-icon">🏺</div>
+            <h1 class="intro-title">Tengo algo para ti</h1>
+            <p class="intro-subtitle">Pero antes tendrás que crearlo con tus propias manos...</p>
+            <button class="btn btn-start" onclick="startExperience()">Empezar</button>
+        </div>
+    </div>
+
+    <!-- ===== PANTALLA SCULPT ===== -->
+    <div class="screen" id="screen-sculpt">
+        <div class="step-header">
+            <div class="step-pills">
+                <span class="pill active">Modelar</span>
+                <span class="pill">Pintar</span>
+                <span class="pill">Completar</span>
+            </div>
+        </div>
+        <div class="sculpt-instruction">
+            <p>Arrastra sobre la pieza para dar forma</p>
+        </div>
+        <div class="canvas-wrapper">
+            <canvas id="potteryCanvas"></canvas>
+            <div class="wheel-base"></div>
+        </div>
+        <div class="sculpt-controls">
+            <button class="btn btn-secondary" onclick="resetShape()">↺ Reiniciar</button>
+            <button class="btn btn-primary" onclick="goToPaint()">Siguiente →</button>
+        </div>
+    </div>
+
+    <!-- ===== PANTALLA PAINT ===== -->
+    <div class="screen" id="screen-paint">
+        <div class="step-header">
+            <div class="step-pills">
+                <span class="pill done">Modelar ✓</span>
+                <span class="pill active">Pintar</span>
+                <span class="pill">Completar</span>
+            </div>
+        </div>
+        <div class="sculpt-instruction">
+            <p>Elige un color y toca la pieza para decorarla</p>
+        </div>
+        <div class="canvas-wrapper">
+            <canvas id="paintCanvas"></canvas>
+            <div class="wheel-base"></div>
+        </div>
+        <div class="color-palette">
+            <button class="color-swatch active" data-color="#c9a96e" style="background:#c9a96e" onclick="selectColor(this)"></button>
+            <button class="color-swatch" data-color="#8B4513" style="background:#8B4513" onclick="selectColor(this)"></button>
+            <button class="color-swatch" data-color="#1B5E3C" style="background:#1B5E3C" onclick="selectColor(this)"></button>
+            <button class="color-swatch" data-color="#b35c3a" style="background:#b35c3a" onclick="selectColor(this)"></button>
+            <button class="color-swatch" data-color="#2c3e50" style="background:#2c3e50" onclick="selectColor(this)"></button>
+            <button class="color-swatch" data-color="#F2EFE6" style="background:#F2EFE6; border:2px solid #ccc" onclick="selectColor(this)"></button>
+            <button class="color-swatch" data-color="#6b3fa0" style="background:#6b3fa0" onclick="selectColor(this)"></button>
+            <button class="color-swatch" data-color="#e8c4a8" style="background:#e8c4a8" onclick="selectColor(this)"></button>
+        </div>
+        <div class="sculpt-controls">
+            <button class="btn btn-secondary" onclick="resetPaint()">↺ Limpiar</button>
+            <button class="btn btn-primary" onclick="goToFinal()">Terminar →</button>
+        </div>
+    </div>
+
+    <!-- ===== PANTALLA FINAL ===== -->
+    <div class="screen" id="screen-final">
+        <div class="step-header">
+            <div class="step-pills">
+                <span class="pill done">Modelar ✓</span>
+                <span class="pill done">Pintar ✓</span>
+                <span class="pill active">Completar</span>
+            </div>
+        </div>
+        <div class="final-container">
+            <div class="final-pot-display">
+                <canvas id="finalCanvas"></canvas>
+            </div>
+            <div class="final-message">
+                <h2 class="final-title">¡Tu pieza está lista! 🎉</h2>
+                <p class="final-text">Has creado tu primera obra de cerámica virtual.<br>Ahora imagina hacerlo de verdad...</p>
+            </div>
+            <div class="final-reveal">
+                <div class="reveal-card">
+                    <span class="reveal-label">Tu regalo es:</span>
+                    <h3 class="reveal-gift">Curso de cerámica en Saleta</h3>
+                    <p class="reveal-details">
+                        Taller de modelado a mano<br>
+                        📍 Ruzafa, Valencia<br>
+                        ☕ Merienda incluida
+                    </p>
+                    <span class="reveal-badge">🎂 Feliz 31 Cumpleaños, Gema</span>
+                </div>
+            </div>
+            <a href="tarjeta.html" class="btn btn-green card-link">Ver tu tarjeta regalo 🎫</a>
+        </div>
+    </div>
+
+    <!-- Confetti -->
+    <div class="confetti-container" id="confetti"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
