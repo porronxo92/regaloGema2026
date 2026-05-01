@@ -380,6 +380,14 @@ body {
     margin-top: 10px;
 }
 
+.back-home {
+    margin-top: 12px;
+    opacity: 0.75;
+}
+.back-home:hover {
+    opacity: 1;
+}
+
 /* Confetti */
 .confetti-container {
     position: fixed;
