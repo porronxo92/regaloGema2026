@@ -952,9 +952,9 @@
         }
 
         .travel-modal-flag {
-            font-size: 2.8rem;
-            display: block;
-            margin-bottom: 6px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
         }
 
         .travel-modal-name {
@@ -1297,7 +1297,7 @@
                     </div>
                 </div>
                 <div class="travel-modal-body">
-                    <span class="travel-modal-flag" id="travelModalFlag"></span>
+                    <span class="travel-modal-flag" id="travelModalFlag"><img src="" alt="" style="width:56px;height:56px;object-fit:cover;border-radius:50%;box-shadow:0 4px 14px rgba(0,0,0,0.15);"></span>
                     <h3 class="travel-modal-name" id="travelModalName"></h3>
                     <span class="travel-modal-badge">Un viaje juntos ❤️</span>
                     <p class="travel-modal-note" id="travelModalNote"></p>
@@ -1609,7 +1609,9 @@
 
         function openTravelModal(country) {
             const media = document.getElementById('travelModalMedia');
-            document.getElementById('travelModalFlag').textContent = country.emoji;
+            const flagImg = document.querySelector('#travelModalFlag img');
+            flagImg.src = `https://flagcdn.com/w80/${country.code}.png`;
+            flagImg.alt = country.name;
             document.getElementById('travelModalName').textContent = country.name;
             document.getElementById('travelModalNote').textContent = country.note || 'Un recuerdo precioso juntos ❤️';
 
